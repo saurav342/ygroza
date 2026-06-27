@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { resolveIsDark } from "@/lib/theme";
 import { useThemeStore } from "@/store/theme";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
@@ -11,9 +12,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     const applyTheme = () => {
-      const isDark =
-        theme === "dark" || (theme === "system" && mediaQuery.matches);
-      root.classList.toggle("dark", isDark);
+      root.classList.toggle("dark", resolveIsDark(theme));
     };
 
     applyTheme();

@@ -21,7 +21,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-subtle dark:bg-gray-950">
       <Header onSearchClick={handleSearchClick} />
       <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-4">
         {children}

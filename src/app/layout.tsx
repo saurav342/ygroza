@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,7 +48,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU" className={`${inter.variable} h-full`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-white text-charcoal dark:bg-gray-950 dark:text-gray-100">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-full flex flex-col bg-gray-subtle text-charcoal dark:bg-gray-950 dark:text-gray-100">
         <ThemeProvider>
           <AppShell>{children}</AppShell>
         </ThemeProvider>

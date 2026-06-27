@@ -4,7 +4,7 @@
   "description": "Groceries delivered in minutes across Australia",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#fafaf9",
   "theme_color": "#16A34A",
   "orientation": "portrait-primary",
   "icons": [

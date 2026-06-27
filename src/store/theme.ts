@@ -3,7 +3,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type Theme = "light" | "dark" | "system";
+import type { Theme } from "@/lib/theme";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
 
 interface ThemeState {
   theme: Theme;
@@ -13,9 +14,16 @@ interface ThemeState {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      theme: "system",
+      theme: "light",
       setTheme: (theme) => set({ theme }),
     }),
-    { name: "groza-theme" }
+    {
+      name: THEME_STORAGE_KEY,
+      onRehydrateStorage: () => (state) => {
+        if (state?.theme === "system") {
+          state.setTheme("light");
+        }
+      },
+    }
   )
 );
