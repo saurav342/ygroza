@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { ToastContainer } from "@/components/ui/Toast";
 import { SearchOverlay } from "@/components/search/SearchOverlay";
@@ -20,14 +21,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header onSearchClick={handleSearchClick} />
-      <main className="mx-auto min-h-screen max-w-7xl flex-1 px-4 pb-24 pt-4 md:pb-8">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-4">
         {children}
       </main>
+      <Footer />
       <BottomNav />
       <ToastContainer />
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
-    </>
+    </div>
   );
 }
