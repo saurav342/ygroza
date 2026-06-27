@@ -14,7 +14,7 @@ export const collections: Collection[] = [
     name: "Fresh Today",
     slug: "fresh-today",
     description: "Farm-fresh produce delivered today",
-    image: "https://images.unsplash.com/photo-1610839634175-cdea9e670780?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop",
     color: "#22C55E",
   },
   {
@@ -30,7 +30,7 @@ export const collections: Collection[] = [
     name: "Australian Favorites",
     slug: "australian-favorites",
     description: "Locally sourced Aussie classics",
-    image: "https://images.unsplash.com/photo-1506976785308-5872df5fba43?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
     color: "#CA8A04",
   },
   {

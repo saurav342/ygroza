@@ -61,7 +61,7 @@ export function Hero() {
             className="absolute right-32 top-32 h-28 w-28 overflow-hidden rounded-3xl shadow-lg"
           >
             <Image
-              src="https://images.unsplash.com/photo-1610839634175-cdea9e670780?w=300&h=300&fit=crop"
+              src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300&h=300&fit=crop"
               alt="Fresh fruits"
               fill
               className="object-cover"
