@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Groza
+
+A modern, premium, mobile-first instant grocery delivery web application for the Australian market.
+
+## Features
+
+- **Homepage** — Hero, categories, featured products, flash deals, collections, trending items
+- **Search** — Live suggestions, recent/popular searches, category filters, voice search UI, infinite scroll
+- **Product pages** — Image gallery, nutrition, ingredients, reviews, related products, sticky add-to-cart
+- **Cart & Checkout** — Promo codes, GST calculation, multi-step checkout (address → delivery → payment → confirm)
+- **Account** — Dashboard, orders with tracking, addresses, wishlist, payments, rewards, referrals, notifications, settings
+- **Mobile bottom navigation** — Home, Categories, Search, Cart, Account
+- **Dark mode** — Light, dark, and system preference
+- **PWA-ready** — Web manifest, theme color, installable structure
+- **Accessibility** — Semantic HTML, ARIA labels, keyboard navigation, WCAG AA contrast
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Zustand (state management)
+- Framer Motion (animations)
+- Lucide React (icons)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Promo Codes (Demo)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `GROZA10` — 10% off orders over $30
+- `FRESH5` — $5 off orders over $25
+- `WELCOME15` — 15% off first order over $40
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Pages (App Router)
+├── components/       # Reusable UI components
+│   ├── account/
+│   ├── cart/
+│   ├── checkout/
+│   ├── home/
+│   ├── layout/
+│   ├── product/
+│   ├── search/
+│   └── ui/
+├── data/             # Mock data (products, categories, etc.)
+├── hooks/            # Custom React hooks
+├── lib/              # Utilities and constants
+├── store/            # Zustand stores
+└── types/            # TypeScript types
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Admin-Ready Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Components and stores are structured for future backend integration:
 
-## Deploy on Vercel
+- Authentication (`useUserStore`)
+- Product management (`src/data/products.ts` → API)
+- Inventory (product `inStock` field)
+- Orders (`useUserStore.orders`, checkout flow)
+- Delivery tracking (order status pipeline)
+- Customer management (account section)
+- Coupons (`src/data/promotions.ts`)
+- Analytics (event hooks ready to wire)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+# ygroza
